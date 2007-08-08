@@ -1,12 +1,13 @@
 %define name gnome-keyring-sharp
 %define version 0.0.1
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Mono bindings for the GNOME Keyring API
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://russell.rucus.net/2005/gnome-keyring-sharp/downloads/%{name}-%{version}.tar.bz2
+Patch: gnome-keyring-sharp-0.0.1-pkgconfig.patch
 License: LGPL
 Group: System/Libraries
 Url: http://russell.rucus.net/2005/gnome-keyring-sharp/
@@ -29,6 +30,7 @@ written in C#.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 ./configure --prefix=%_prefix
