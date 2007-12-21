@@ -11,6 +11,7 @@ Source0: %{name}-%{svn}.tar.bz2
 License: LGPL
 Group: System/Libraries
 Url: http://go-mono.com
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: mono-devel
 BuildRequires: ndesk-dbus
 BuildRequires: monodoc
