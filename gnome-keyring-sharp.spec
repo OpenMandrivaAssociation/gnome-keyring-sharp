@@ -1,6 +1,6 @@
 %define name gnome-keyring-sharp
-%define version 0.1.0
-%define svn 84869
+%define version 1.0
+%define svn 87622
 %define release %mkrel 0.%svn.1
 
 Summary: Mono implementation of the GNOME Keyring API
@@ -15,8 +15,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: mono-devel
 BuildRequires: ndesk-dbus
 BuildRequires: monodoc
-BuildRequires: automake1.7
-BuildArch: noarch
+BuildRequires: automake
+Buildarch: noarch
 Requires: gnome-keyring
 
 %description
@@ -42,17 +42,17 @@ Monodoc format.
 
 %prep
 %setup -q -n %name
-aclocal-1.7
-autoconf
-automake-1.7 -a
 
 %build
-./configure --prefix=%_prefix
+aclocal
+automake -a
+autoconf
+%configure2_5x --libdir=%{_prefix}/lib --build=%_host
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall_std pkgconfigdir=%_datadir/pkgconfig
+%makeinstall_std
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -68,10 +68,10 @@ fi
 %files
 %defattr(-,root,root)
 %doc README
-%_prefix/lib/Gnome.Keyring
-%_datadir/pkgconfig/gnome-keyring-sharp.pc
+%{_prefix}/lib/mono/gac/Gnome.Keyring
+%{_prefix}/lib/mono/gnome-keyring-sharp-1.0/Gnome.Keyring.dll
+%_prefix/lib/pkgconfig/*.pc
 
 %files doc
 %defattr(-,root,root)
-%_prefix/lib/monodoc/sources/Gnome.Keyring*
-
+%{_prefix}/lib/monodoc/sources/Gnome.Keyring.*
