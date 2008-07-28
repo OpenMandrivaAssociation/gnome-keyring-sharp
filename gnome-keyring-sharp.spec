@@ -1,14 +1,14 @@
 %define name gnome-keyring-sharp
 %define version 1.0
 %define svn 87622
-%define release %mkrel 0.%svn.1
+%define release %mkrel 0.%svn.2
 
 Summary: Mono implementation of the GNOME Keyring API
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: %{name}-%{svn}.tar.bz2
-License: LGPL
+License: MIT
 Group: System/Libraries
 Url: http://go-mono.com
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -52,7 +52,7 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall_std
+%makeinstall_std pkgconfigdir=%_datadir/pkgconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -70,7 +70,7 @@ fi
 %doc README
 %{_prefix}/lib/mono/gac/Gnome.Keyring
 %{_prefix}/lib/mono/gnome-keyring-sharp-1.0/Gnome.Keyring.dll
-%_prefix/lib/pkgconfig/*.pc
+%_datadir/pkgconfig/*.pc
 
 %files doc
 %defattr(-,root,root)
