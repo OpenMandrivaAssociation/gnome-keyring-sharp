@@ -1,12 +1,13 @@
 %define name gnome-keyring-sharp
-%define version 1.0.0
-%define release %mkrel 1
+%define version 1.0.1
+%define svn r127410
+%define release %mkrel 0.%svn.1
 
 Summary: Mono implementation of the GNOME Keyring API
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://ftp.novell.com/pub/mono/sources/%name/%{name}-%{version}.tar.bz2
+Source0: http://ftp.novell.com/pub/mono/sources/%name/%{name}-%{svn}.tar.bz2
 License: MIT
 Group: System/Libraries
 Url: http://go-mono.com
@@ -40,7 +41,8 @@ Monodoc format.
 
 
 %prep
-%setup -q
+%setup -q -n %name
+./autogen.sh
 
 %build
 %configure2_5x --libdir=%{_prefix}/lib --build=%_host
