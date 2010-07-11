@@ -1,13 +1,12 @@
 %define name gnome-keyring-sharp
-%define version 1.0.1
-%define svn r127410
-%define release %mkrel 0.%svn.2
+%define version 1.0.2
+%define release %mkrel 1
 
 Summary: Mono implementation of the GNOME Keyring API
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://ftp.novell.com/pub/mono/sources/%name/%{name}-%{svn}.tar.bz2
+Source0: http://www.go-mono.com/archive/%name/%{name}-%{version}.tar.gz
 License: MIT
 Group: System/Libraries
 Url: http://go-mono.com
@@ -16,7 +15,6 @@ BuildRequires: mono-devel
 BuildRequires: ndesk-dbus
 BuildRequires: monodoc
 BuildRequires: automake
-Buildarch: noarch
 Requires: gnome-keyring
 
 %description
@@ -41,16 +39,15 @@ Monodoc format.
 
 
 %prep
-%setup -q -n %name
-./autogen.sh
+%setup -q
 
 %build
-%configure2_5x --libdir=%{_prefix}/lib --build=%_host
+%configure2_5x --disable-static
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall_std pkgconfigdir=%_datadir/pkgconfig
+%makeinstall_std
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -68,7 +65,9 @@ fi
 %doc README
 %{_prefix}/lib/mono/gac/Gnome.Keyring
 %{_prefix}/lib/mono/gnome-keyring-sharp-1.0/Gnome.Keyring.dll
-%_datadir/pkgconfig/*.pc
+%_libdir/libgnome-keyring-sharp-glue.so
+%_libdir/libgnome-keyring-sharp-glue.la
+%_libdir/pkgconfig/*.pc
 
 %files doc
 %defattr(-,root,root)
