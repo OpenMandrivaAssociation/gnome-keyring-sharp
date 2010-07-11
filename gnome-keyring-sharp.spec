@@ -14,6 +14,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: mono-devel
 BuildRequires: ndesk-dbus
 BuildRequires: monodoc
+BuildRequires: glib-sharp2
 BuildRequires: automake
 Requires: gnome-keyring
 
