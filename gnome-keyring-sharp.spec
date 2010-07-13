@@ -50,7 +50,9 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-
+%if %_lib != lib
+mv %buildroot%_libdir/mono* %buildroot%_prefix/lib
+%endif
 %clean
 rm -rf $RPM_BUILD_ROOT
 
