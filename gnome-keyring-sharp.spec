@@ -15,6 +15,7 @@ BuildRequires: mono-devel
 BuildRequires: ndesk-dbus
 BuildRequires: monodoc
 BuildRequires: glib-sharp2
+BuildRequires: libgnome-keyring-devel
 BuildRequires: automake
 Requires: gnome-keyring
 
