@@ -1,6 +1,6 @@
 %define name gnome-keyring-sharp
 %define version 1.0.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Mono implementation of the GNOME Keyring API
 Name: %{name}
