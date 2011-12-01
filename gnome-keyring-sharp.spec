@@ -48,13 +48,13 @@ Monodoc format.
 make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 %if %_lib != lib
 mv %buildroot%_libdir/mono* %buildroot%_prefix/lib
 %endif
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post doc
 %_bindir/monodoc --make-index > /dev/null
