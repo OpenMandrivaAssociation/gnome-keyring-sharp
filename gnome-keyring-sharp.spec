@@ -70,7 +70,6 @@ fi
 %{_prefix}/lib/mono/gac/Gnome.Keyring
 %{_prefix}/lib/mono/gnome-keyring-sharp-1.0/Gnome.Keyring.dll
 %_libdir/libgnome-keyring-sharp-glue.so
-%_libdir/libgnome-keyring-sharp-glue.la
 %_libdir/pkgconfig/*.pc
 
 %files doc
