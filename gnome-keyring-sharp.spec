@@ -1,7 +1,7 @@
 Summary:	Mono implementation of the GNOME Keyring API
 Name:		gnome-keyring-sharp
 Version:	1.0.2
-Release:	14
+Release:	15
 License:	MIT
 Group:		System/Libraries
 Url:		http://go-mono.com
@@ -45,14 +45,14 @@ Monodoc format.
 %setup -q
 
 %build
-%configure2_5x --disable-static
-make
+%configure --disable-static
+%make_build
 
 %install
-%makeinstall_std
-%if %{_lib} != lib
-mv %{buildroot}%{_libdir}/mono* %{buildroot}%{_prefix}/lib
-%endif
+%make_install
+
+#mv %{buildroot}%{_libdir}/mono* %{buildroot}%{_prefix}/lib
+
 
 %post doc
 %{_bindir}/monodoc --make-index > /dev/null
