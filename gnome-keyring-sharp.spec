@@ -4,7 +4,7 @@ Version:	1.0.2
 Release:	16
 License:	MIT
 Group:		System/Libraries
-Url:		http://go-mono.com
+Url:		https://go-mono.com
 Source0:	http://www.go-mono.com/archive/%{name}/%{name}-%{version}.tar.gz
 
 BuildRequires:	ndesk-dbus
