@@ -7,6 +7,11 @@ Group:		System/Libraries
 Url:		https://go-mono.com
 Source0:	http://www.go-mono.com/archive/%{name}/%{name}-%{version}.tar.gz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	ndesk-dbus
 BuildRequires:	monodoc
 BuildRequires:	pkgconfig(glib-sharp-2.0)
